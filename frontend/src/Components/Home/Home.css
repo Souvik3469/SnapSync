@@ -18,7 +18,8 @@
 }
 
 .homeright {
-    background-image: linear-gradient(to right, #f0e5a6, #a491e9);
+    background-image: linear-gradient(to right, #acdff1,
+        #b8ade0);
     
     padding: 2vmax;
     box-sizing: border-box;

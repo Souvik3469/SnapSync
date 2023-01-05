@@ -10,7 +10,8 @@
 }
 
 .searchForm {
-    background-image: linear-gradient(to right, #f0e5a6, #a491e9);
+    background-image: linear-gradient(to right,#acdff1,
+        #b8ade0);
     height: 100%;
     width: 50%;
     border-radius: 30px;

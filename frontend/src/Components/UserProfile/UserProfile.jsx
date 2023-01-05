@@ -83,7 +83,6 @@ const UserProfile = () => {
       dispatch({ type: "clearMessage" });
     }
   }, [alert, error, message, followError, userError, dispatch]);
-
   return loading === true || userLoading === true ? (
     <Loader />
   ) : (
@@ -97,6 +96,7 @@ const UserProfile = () => {
               caption={post.caption}
               postImage={post.imageUrl.url}
               likes={post.likes}
+              postid={params.id}
               comments={post.comments}
               ownerImage={post.owner.avatar.url}
               ownerName={post.owner.name}

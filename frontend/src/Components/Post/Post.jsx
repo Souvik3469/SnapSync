@@ -17,7 +17,7 @@ import {
   likePost,
   updatePost,
 } from "../../Actions/Post";
-import { getFollowingPosts, getMyPosts, loadUser } from "../../Actions/User";
+import { getFollowingPosts, getMyPosts, loadUser,getUserPosts } from "../../Actions/User";
 import User from "../User/User";
 import CommentCard from "../CommentCard/CommentCard";
 
@@ -26,6 +26,7 @@ const Post = ({
   caption,
   postImage,
   likes = [],
+  postid,
   comments = [],
   ownerImage,
   ownerName,
@@ -52,6 +53,7 @@ const Post = ({
       dispatch(getMyPosts());
     } else {
       dispatch(getFollowingPosts());
+      dispatch(getUserPosts(postid))
     }
   };
 
