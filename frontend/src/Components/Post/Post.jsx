@@ -115,8 +115,8 @@ const Post = ({
         </Link>
 
         <Typography
-          fontWeight={100}
-          color="rgba(0, 0, 0, 0.582)"
+          fontWeight={300}
+          color="rgba(241, 232, 232, 0.767)"
           style={{ alignSelf: "center" }}
         >
           {caption}
@@ -126,14 +126,14 @@ const Post = ({
       <button
         style={{
           border: "none",
-          backgroundColor: "white",
+          backgroundColor: "black",
           cursor: "pointer",
           margin: "1vmax 2vmax",
         }}
         onClick={() => setLikesUser(!likesUser)}
         disabled={likes.length === 0 ? true : false}
       >
-        <Typography>{likes.length} Likes</Typography>
+        <Typography  color="rgba(241, 232, 232, 0.767)">{likes.length} Likes</Typography>
       </button>
 
       <div className="postFooter">

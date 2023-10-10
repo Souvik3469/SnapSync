@@ -1,10 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to right, #2c0c46, #0c0725);
+    background-image: linear-gradient(to right, #020103, #0c0725);
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 2px solid white;
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    /* Add a white border to the bottom of the header */
 }
-
+.header>span {
+    font-weight: bolder;
+    font-size: x-large;
+    color: white;
+   margin-right: 100px;
+    /* position: sticky;
+        z-index: 999; */
+    /* Pushes the logo to the extreme left */
+}
 .header>a {
     width: 2vmax;
     height: 2vmax;
