@@ -83,6 +83,7 @@ const UserProfile = () => {
       dispatch({ type: "clearMessage" });
     }
   }, [alert, error, message, followError, userError, dispatch]);
+  console.log("User111111111111",user);
   return loading === true || userLoading === true ? (
     <Loader />
   ) : (

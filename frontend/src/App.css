@@ -6,3 +6,6 @@
     font-family: 'Montserrat', sans-serif;
     /* background-color: rgb(64, 64, 71); */
 }
+   /* &::-webkit-scrollbar {
+       display: none;
+   } */
