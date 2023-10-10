@@ -49,6 +49,7 @@ const NewPost = () => {
   }, [dispatch, error, message, alert]);
 
   return (
+    
     <div className="newPost">
       <form className="newPostForm" onSubmit={submitHandler}>
         <Typography variant="h3">New Post</Typography>
