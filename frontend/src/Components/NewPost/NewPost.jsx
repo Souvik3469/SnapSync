@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { createNewPost } from "../../Actions/Post";
 import { loadUser } from "../../Actions/User";
 import "./NewPost.css";
+import LeftBar from "../Leftbar/Leftbar";
+import RightBar from "../Rightbar/Rightbar";
 const NewPost = () => {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
@@ -49,7 +51,9 @@ const NewPost = () => {
   }, [dispatch, error, message, alert]);
 
   return (
-    
+     <div style={{ display: "flex" }}>
+            <LeftBar />
+            <div style={{ flex: 6 }}>
     <div className="newPost">
       <form className="newPostForm" onSubmit={submitHandler}>
         <Typography variant="h3">New Post</Typography>
@@ -66,6 +70,9 @@ const NewPost = () => {
           Post
         </Button>
       </form>
+    </div>
+    </div>
+      <RightBar/>
     </div>
   );
 };

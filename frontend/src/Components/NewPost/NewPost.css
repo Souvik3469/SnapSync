@@ -1,6 +1,6 @@
 .newPost {
     min-height: 100vh;
-    background-image: url('../bg1.jpg');
+background-color: rgb(64, 64, 71);
     background-size: cover;
 
     display: flex;
@@ -11,10 +11,10 @@
 }
 
 .newPostForm {
-    background-image: linear-gradient(to right,#acdff1,
-        #b8ade0);
+    background-image: linear-gradient(to right,#000000,
+        #000000);
     height: 100%;
-    width: 50%;
+    width: 70%;
     border-radius: 30px;
     box-sizing: border-box;
     padding: 2vmax;
@@ -30,6 +30,7 @@
 
 .newPostForm>h3 {
     margin: 2vmax;
+    color: white;
 }
 
 .newPostForm>input[type="text"] {

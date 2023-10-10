@@ -11,6 +11,25 @@
     top: 0;
     /* Add a white border to the bottom of the header */
 }
+.div1 {
+    display: flex;
+    flex-direction: row;
+    padding: "2vmax"
+}
+
+.span3 {
+    color: aqua;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.span4 {
+    color: rgb(243, 243, 243);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
 .header>span {
     font-weight: bolder;
     font-size: x-large;
