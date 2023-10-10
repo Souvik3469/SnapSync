@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./Login.css";
+// import "./Login.css";
+import "./login.scss"
 import { Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +10,7 @@ import { useAlert } from "react-alert";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -32,39 +34,79 @@ const Login = () => {
     }
   }, [alert, error, dispatch, message]);
 
-  return (
-    <div className="login">
-      <form className="loginForm" onSubmit={loginHandler}>
-        <Typography variant="h3" style={{ padding: "2vmax" }}>
-          HiFi
-        </Typography>
 
-        <input
+
+
+  return (
+    
+    // <div className="login">
+    //   <form className="loginForm" onSubmit={loginHandler}>
+    //     <Typography variant="h3" style={{ padding: "2vmax" }}>
+    //       HiFi
+    //     </Typography>
+
+    //     <input
+    //       type="email"
+    //       placeholder="Email"
+    //       required
+    //       value={email}
+    //       onChange={(e) => setEmail(e.target.value)}
+    //     />
+
+    //     <input
+    //       type="password"
+    //       placeholder="Password"
+    //       required
+    //       value={password}
+    //       onChange={(e) => setPassword(e.target.value)}
+    //     />
+
+    //     <Link to="/forgot/password">
+    //       <Typography>Forgot Password?</Typography>
+    //     </Link>
+
+    //     <Button type="submit">Login</Button>
+
+    //     <Link to="/register">
+    //       <Typography>New User?</Typography>
+    //     </Link>
+    //   </form>
+    // </div>
+      <div className="login">
+      <div className="card">
+        <div className="left">
+          <h1>Snap Sync.</h1>
+           <h2 className="h2">
+           "Discover, Connect, Inspire"
+          </h2>
+          <span>Don't you have an account?</span>
+          <Link to="/register">
+            <button>Register</button>
+          </Link>
+        </div>
+        <div className="right">
+          <h1>Login</h1>
+          <form>
+           
+              <input
           type="email"
           placeholder="Email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
-        <input
+            <input
           type="password"
           placeholder="Password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <Link to="/forgot/password">
-          <Typography>Forgot Password?</Typography>
-        </Link>
-
-        <Button type="submit">Login</Button>
-
-        <Link to="/register">
-          <Typography>New User?</Typography>
-        </Link>
-      </form>
+            {/* {err && err} */}
+            <button onClick={loginHandler}>Login</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
