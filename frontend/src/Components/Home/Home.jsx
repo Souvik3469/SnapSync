@@ -8,6 +8,9 @@ import Loader from "../Loader/Loader";
 import { Typography } from "@mui/material";
 import { useAlert } from "react-alert";
 import { getpost } from "../../Actions/Post";
+import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-router-dom";
+import LeftBar from "../Leftbar/Leftbar";
+import RightBar from "../Rightbar/Rightbar";
 const Home = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -46,12 +49,58 @@ const Home = () => {
     }
   }, [alert, error, message, likeError, dispatch]);
 
+  // return loading === true || usersLoading === true ? (
+  //   <Loader />
+  // ) : (
+  //   <div className="home">
+   
+  //     <div className="homeleft">
+  //       {posts && posts.length > 0 ? (
+  //         posts.map((post) => (
+  //           <Post
+  //             key={post._id}
+  //             postId={post._id}
+  //             caption={post.caption}
+  //             postImage={post.imageUrl.url}
+  //             likes={post.likes}
+  //             comments={post.comments}
+  //             ownerImage={post.owner.avatar.url}
+  //             ownerName={post.owner.name}
+  //             ownerId={post.owner._id}
+          
+  //           />
+  //         ))
+  //       ) : (
+  //         <Typography variant="h6">No posts yet</Typography>
+  //       )}
+  //     </div>
+  //     <div className="homeright">
+  //       {users && users.length > 0 ? (
+  //         users.map((user) => (
+  //           <User
+  //             key={user._id}
+  //             userId={user._id}
+  //             name={user.name}
+  //             avatar={user.avatar.url}
+  //           />
+  //         ))
+  //       ) : (
+  //         <Typography>No Users Yet</Typography>
+  //       )}
+  //     </div>
+  //   </div>
+
+
+
   return loading === true || usersLoading === true ? (
     <Loader />
   ) : (
-    <div className="home">
-      <div className="homeleft">
-        {posts && posts.length > 0 ? (
+   <div style={{ display: "flex" }}>
+            <LeftBar />
+            <div style={{ flex: 6 }}>
+              {/* <Outlet /> */}
+                 <div className="homeleft">
+       {posts && posts.length > 0 ? (
           posts.map((post) => (
             <Post
               key={post._id}
@@ -67,24 +116,12 @@ const Home = () => {
             />
           ))
         ) : (
-          <Typography variant="h6">No posts yet</Typography>
+          <Typography variant="h6">No posts of following yet</Typography>
         )}
       </div>
-      <div className="homeright">
-        {users && users.length > 0 ? (
-          users.map((user) => (
-            <User
-              key={user._id}
-              userId={user._id}
-              name={user.name}
-              avatar={user.avatar.url}
-            />
-          ))
-        ) : (
-          <Typography>No Users Yet</Typography>
-        )}
-      </div>
-    </div>
+            </div>
+            <RightBar />
+          </div>
   );
 };
 

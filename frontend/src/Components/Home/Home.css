@@ -1,37 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 .home {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 400px;
     height: 100vh;
+        font-family: 'Montserrat', sans-serif;
 }
 
 .homeleft {
- background-image: url('../bg1.jpg');
- 
-
+    background-color: rgb(64, 64, 71);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2vmax;
     box-sizing: border-box;
+    color: white;
+        font-family: 'Montserrat', sans-serif;
+        position: sticky;
+        /* z-index: 500; */
+    /* Set font color to white */
 }
 
 .homeright {
-    background-image: linear-gradient(to right, #acdff1,
-        #b8ade0);
-    
+    background-image: linear-gradient(to right, #090c0e, #050408);
     padding: 2vmax;
     box-sizing: border-box;
     overflow-y: auto;
+    color: white;
+   
+    /* Set font color to white */
 }
 
 .homeUser {
     display: flex;
     align-items: center;
     text-decoration: none;
-    
-    color: rgba(0, 0, 0, 0.507);
+    color:rgb(235, 226, 226);
+    /* Adjust font color as needed */
     transition: all 0.5s;
 }
 
