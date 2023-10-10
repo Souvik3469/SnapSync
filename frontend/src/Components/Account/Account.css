@@ -3,25 +3,29 @@
     display: grid;
     grid-template-columns: 1fr 400px;
     height: 92vh;
+        /* overflow-y: hidden; */
 }
 
 .accountleft {
-background-image: url('../bg1.jpg');
+background-color: rgb(64, 64, 71);
 
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2vmax;
     box-sizing: border-box;
-    overflow-y: auto;
-}
+overflow-y: scroll;
 
+}
+   &::-webkit-scrollbar {
+       display: none;
+   }
 .accountright {
-    background-image: linear-gradient(to right, #acdff1,
-        #b8ade0);
+    background-image: linear-gradient(to right, #040505,
+        #000000);
     padding: 2vmax;
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,20 +41,22 @@ background-image: url('../bg1.jpg');
 
 .accountright>h5 {
     margin: 2vmax;
+    color: white;
 }
 
 .accountright>a {
-    color: rgb(73, 73, 73);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font: 100 1.2rem "Roboto";
     text-align: center;
     margin-top: 2vmax;
     padding: 0.5vmax 1vmax;
     transition: all 0.5s;
+    color: white;
 }
 
 .accountright>a:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.253);
+    box-shadow: 0 0 10px rgba(238, 234, 234, 0.884);
 }
 
 .accountright>div {
@@ -58,6 +64,7 @@ background-image: url('../bg1.jpg');
     flex-direction: column;
     align-items: center;
     margin: 1vmax;
+    color: white;
 }
 
 .accountright>div>button:hover {

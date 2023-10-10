@@ -1,4 +1,5 @@
 import "./leftBar.scss";
+import { Link } from "react-router-dom";
 import Friends from "../../assets/1.png";
 import Groups from "../../assets/2.png";
 import Market from "../../assets/3.png";
@@ -12,16 +13,73 @@ import Messages from "../../assets/10.png";
 import Tutorials from "../../assets/11.png";
 import Courses from "../../assets/12.png";
 import Fund from "../../assets/13.png";
-// import { AuthContext } from "../../context/authContext";
-// import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Avatar, Button, Dialog, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useAlert } from "react-alert";
+import { useDispatch, useSelector } from "react-redux";
+
+import { deleteMyProfile, getMyPosts, logoutUser } from "../../Actions/User";
+import Loader from "../Loader/Loader";
+import Post from "../Post/Post";
+import User from "../User/User";
+
 
 const LeftBar = () => {
+  const dispatch = useDispatch();
+  const alert = useAlert();
+  const [tab, setTab] = useState(window.location.pathname);
+  const { user, loading: userLoading } = useSelector((state) => state.user);
+  const { loading, error, posts } = useSelector((state) => state.myPosts);
+  const {
+    error: likeError,
+    message,
+    loading: deleteLoading,
+  } = useSelector((state) => state.like);
+
+  const [followersToggle, setFollowersToggle] = useState(false);
+
+  const [followingToggle, setFollowingToggle] = useState(false);
+  const logoutHandler = () => {
+    dispatch(logoutUser());
+    alert.success("Logged out successfully");
+  };
+
+  const deleteProfileHandler = async () => {
+    await dispatch(deleteMyProfile());
+    dispatch(logoutUser());
+  };
+
+  useEffect(() => {
+    dispatch(getMyPosts());
+    console.log(posts,"posts");
+    console.log(user,"user")
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch({ type: "clearErrors" });
+    }
+
+    if (likeError) {
+      alert.error(likeError);
+      dispatch({ type: "clearErrors" });
+    }
+    if (message) {
+      alert.success(message);
+      dispatch({ type: "clearMessage" });
+    }
+  }, [alert, error, message, likeError, dispatch]);
 
 //   const { currentUser } = useContext(AuthContext);
-
-  return (
+  console.log("User2",user);
+return loading === true || userLoading === true ? (
+    <Loader />
+  ) : (
+  // return(
     <div className="leftBar">
+
+      
       <div className="container">
         <div className="menu">
           {/* <div className="user">
@@ -35,18 +93,87 @@ const LeftBar = () => {
             {/* <span>{currentUser.name}</span> */}
             {/* </Link> */}
           {/* </div> */} 
+          {user && (
+                <>
           <div className="item">
-            <img src={Friends} alt="" />
-            <span>Friends</span>
+               
+             <Link to="/account" onClick={() => setTab("/account")}>
+             <Avatar
+              src={user.avatar.url}
+              sx={{ height: "2vmax", width: "2vmax" }}
+            />
+             </Link>
+            {/* <img src={Friends} alt="" /> */}
+            <span>{user.name}</span>
+           
           </div>
           <div className="item">
             <img src={Groups} alt="" />
-            <span>Groups</span>
+            <span onClick={() => setFollowersToggle(!followersToggle)}>Followers</span>
+             <span>{user.followers.length}</span>
           </div>
           <div className="item">
-            <img src={Market} alt="" />
-            <span>Marketplace</span>
+            <img src={Friends} alt="" />
+            <span onClick={() => setFollowingToggle(!followingToggle)}>Following</span>
+             <span>{user.following.length}</span>
           </div>
+          </>
+               )}
+               <Dialog
+          open={followersToggle}
+          onClose={() => setFollowersToggle(!followersToggle)}
+        >
+          <div className="DialogBox">
+            <Typography variant="h4">Followers</Typography>
+
+            {user && user.followers.length > 0 ? (
+              user.followers.map((follower) => (
+                <User
+                  key={follower._id}
+                  userId={follower._id}
+                  name={follower.name}
+                  avatar={follower.avatar.url}
+                />
+              ))
+            ) : (
+              <Typography style={{ margin: "2vmax" }}>
+                You have no followers
+              </Typography>
+            )}
+          </div>
+        </Dialog>
+         <Dialog
+          open={followingToggle}
+          onClose={() => setFollowingToggle(!followingToggle)}
+        >
+          <div className="DialogBox">
+            <Typography variant="h4">Following</Typography>
+
+            {user && user.following.length > 0 ? (
+              user.following.map((follow) => (
+                <User
+                  key={follow._id}
+                  userId={follow._id}
+                  name={follow.name}
+                  avatar=""
+                />
+              ))
+            ) : (
+              <Typography style={{ margin: "2vmax" }}>
+                You're not following anyone
+              </Typography>
+            )}
+          </div>
+        </Dialog>
+
+{/* <div>
+              <button onClick={() => setFollowersToggle(!followersToggle)}>
+                <Typography>Followers</Typography>
+              </button>
+              <Typography>{user.followers.length}</Typography>
+            </div> */}
+
+       
           <div className="item">
             <img src={Watch} alt="" />
             <span>Watch</span>

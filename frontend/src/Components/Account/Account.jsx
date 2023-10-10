@@ -8,6 +8,8 @@ import Loader from "../Loader/Loader";
 import Post from "../Post/Post";
 import User from "../User/User";
 import "./Account.css";
+import RightBar from "../Rightbar/Rightbar";
+import LeftBar from "../Leftbar/Leftbar";
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -59,6 +61,12 @@ const Account = () => {
   return loading === true || userLoading === true ? (
     <Loader />
   ) : (
+    <div style={{ display: "flex" }}>
+            {/* <LeftBar /> */}
+            <div style={{width:"25%"}}>
+             <RightBar />
+             </div>
+            {/* <div style={{ flex: 6 }}> */}
     <div className="account">
       <div className="accountleft">
         {posts && posts.length > 0 ? (
@@ -172,6 +180,9 @@ const Account = () => {
           </div>
         </Dialog>
       </div>
+      </div>
+      {/* </div> */}
+                  {/* <RightBar /> */}
     </div>
   );
 };

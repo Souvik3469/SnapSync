@@ -5,6 +5,8 @@ import "./UpdateProfile.css";
 import { loadUser, updateProfile } from "../../Actions/User";
 import { useAlert } from "react-alert";
 import Loader from "../Loader/Loader";
+import RightBar from "../Rightbar/Rightbar";
+import LeftBar from "../Leftbar/Leftbar";
 
 const UpdateProfile = () => {
   const { loading, error, user } = useSelector((state) => state.user);
@@ -62,11 +64,18 @@ const UpdateProfile = () => {
   return loading ? (
     <Loader />
   ) : (
+    <div style={{ display: "flex" }}>
+            <LeftBar />
+            <div style={{ flex: 6 }}>
     <div className="updateProfile">
       <form className="updateProfileForm" onSubmit={submitHandler}>
-        <Typography variant="h3" style={{ padding: "2vmax" }}>
+        {/* <Typography variant="h3" style={{ padding: "2vmax" }}>
         HiFi
-        </Typography>
+        </Typography> */}
+          <div className="div2">
+        <span className="span5">Snap</span>
+         <span className="span6">Sync</span>
+        </div>
 
         <Avatar
           src={avatarPrev}
@@ -98,6 +107,9 @@ const UpdateProfile = () => {
           Update
         </Button>
       </form>
+      </div>
+      </div>
+      <RightBar/>
     </div>
   );
 };

@@ -1,26 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 .updateProfile {
     min-height: 100vh;
-    background-image: url('../bg1.jpg');
+background-color: rgb(64, 64, 71);
 
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2vmax;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .updateProfileForm {
-    background-image: linear-gradient(to right,#acdff1,
-        #b8ade0);
-    width: 50%;
+    background-image: linear-gradient(to right,#020708,
+        #000000);
+    width: 70%;
     border-radius: 30px;
     box-sizing: border-box;
     padding: 2vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.div2{
+    display: flex;
+        flex-direction: row;
+      padding-bottom: 2vmax;
+}
+.span5 {
+    color: aqua;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
 }
 
+.span6 {
+    color: rgb(243, 243, 243);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+}
 .updateProfileInputs {
     box-sizing: border-box;
     padding: 1vmax 2vmax;
@@ -30,6 +50,7 @@
     margin: 2vmax;
     font: 100 1.2rem "Roboto", sans-serif;
     outline: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .updateProfileForm>input[type="file"] {
