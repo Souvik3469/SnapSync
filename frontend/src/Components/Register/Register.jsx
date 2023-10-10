@@ -2,7 +2,8 @@ import { Avatar, Typography, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "./Register.css";
+// import "./Register.css";
+import "./register.scss"
 import { registerUser } from "../../Actions/User";
 import { useAlert } from "react-alert";
 
@@ -41,55 +42,112 @@ const Register = () => {
     }
   }, [dispatch, error, alert]);
   return (
-    <div className="register">
-      <form className="registerForm" onSubmit={submitHandler}>
-        <Typography variant="h3" style={{ padding: "2vmax" }}>
-          HiFi
-        </Typography>
+    // <div className="register">
+    //   <form className="registerForm" onSubmit={submitHandler}>
+    //     <Typography variant="h3" style={{ padding: "2vmax" }}>
+    //       HiFi
+    //     </Typography>
 
+    //     <Avatar
+    //       src={avatar}
+    //       alt="User"
+    //       sx={{ height: "10vmax", width: "10vmax" }}
+    //     />
+
+    //     <input type="file" accept="image/*" onChange={handleImageChange} />
+
+    //     <input
+    //       type="text"
+    //       value={name}
+    //       placeholder="Name"
+    //       className="registerInputs"
+    //       required
+    //       onChange={(e) => setName(e.target.value)}
+    //     />
+
+    //     <input
+    //       type="email"
+    //       placeholder="Email"
+    //       className="registerInputs"
+    //       required
+    //       value={email}
+    //       onChange={(e) => setEmail(e.target.value)}
+    //     />
+
+    //     <input
+    //       type="password"
+    //       className="registerInputs"
+    //       placeholder="Password"
+    //       required
+    //       value={password}
+    //       onChange={(e) => setPassword(e.target.value)}
+    //     />
+
+    //     <Link to="/">
+    //       <Typography>Already Signed Up? Login Now</Typography>
+    //     </Link>
+
+    //     <Button disabled={loading} type="submit">
+    //       Sign Up
+    //     </Button>
+    //   </form>
+    // </div>
+      <div className="register">
+      <div className="card">
+        <div className="left">
+          <h1>Snap Sync.</h1>
+          <h2 className="h2">
+           "Discover, Connect, Inspire"
+          </h2>
+          <span>Do you have an account?</span>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+        </div>
+        <div className="right">
+          <h1>Register</h1>
+          <form>
+            <div className="av">
         <Avatar
           src={avatar}
           alt="User"
-          sx={{ height: "10vmax", width: "10vmax" }}
+          sx={{ height: "5vmax", width: "5vmax",  justifyContent: "center" }}
+          // style={{ justifyContent: "center", display: "flex" }}
         />
+        </div>
 
         <input type="file" accept="image/*" onChange={handleImageChange} />
-
-        <input
+            <input
           type="text"
-          value={name}
+         
           placeholder="Name"
-          className="registerInputs"
+          // className="registerInputs"
           required
+           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-
-        <input
+             <input
           type="email"
           placeholder="Email"
-          className="registerInputs"
+          // className="registerInputs"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
-        <input
+             <input
           type="password"
-          className="registerInputs"
+          // className="registerInputs"
           placeholder="Password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <Link to="/">
-          <Typography>Already Signed Up? Login Now</Typography>
-        </Link>
-
-        <Button disabled={loading} type="submit">
-          Sign Up
-        </Button>
-      </form>
+            
+           
+            <button onClick={submitHandler}>Register</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

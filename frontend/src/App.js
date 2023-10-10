@@ -40,6 +40,10 @@ function App() {
           path="/register"
           element={isAuthenticated ? <Account /> : <Register />}
         />
+         <Route
+          path="/login"
+          element={isAuthenticated ? <Account /> : <Login />}
+        />
 
         <Route
           path="/newpost"
