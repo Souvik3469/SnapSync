@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers } from "../../Actions/User";
 import User from "../User/User";
 import "./Search.css";
+import LeftBar from "../Leftbar/Leftbar";
+import RightBar from "../Rightbar/Rightbar";
 
 const Search = () => {
   const [name, setName] = React.useState("");
@@ -17,12 +19,18 @@ const Search = () => {
   };
 
   return (
+      <div style={{ display: "flex" }}>
+            <LeftBar />
+            <div style={{ flex: 6 }}>
     <div className="search">
       <form className="searchForm" onSubmit={submitHandler}>
-        <Typography variant="h3" style={{ padding: "2vmax" }}>
-          HiFi
-        </Typography>
-
+        {/* <Typography variant="h3" style={{ padding: "2vmax" }}>
+         SnapSync
+        </Typography> */}
+        <div className="div1">
+        <span className="span1">Snap</span>
+         <span className="span2">Sync</span>
+        </div>
         <input
           type="text"
           value={name}
@@ -47,6 +55,9 @@ const Search = () => {
             ))}
         </div>
       </form>
+    </div>
+    </div>
+     <RightBar />
     </div>
   );
 };
