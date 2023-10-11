@@ -29,51 +29,39 @@ const LeftBar = () => {
   const alert = useAlert();
   const [tab, setTab] = useState(window.location.pathname);
   const { user, loading: userLoading } = useSelector((state) => state.user);
-  const { loading, error, posts } = useSelector((state) => state.myPosts);
-  const {
-    error: likeError,
-    message,
-    loading: deleteLoading,
-  } = useSelector((state) => state.like);
+
+ 
 
   const [followersToggle, setFollowersToggle] = useState(false);
 
   const [followingToggle, setFollowingToggle] = useState(false);
-  const logoutHandler = () => {
-    dispatch(logoutUser());
-    alert.success("Logged out successfully");
-  };
+ 
 
-  const deleteProfileHandler = async () => {
-    await dispatch(deleteMyProfile());
-    dispatch(logoutUser());
-  };
+  // useEffect(() => {
+  //   dispatch(getMyPosts());
+  //   console.log(posts,"posts");
+  //   console.log(user,"user")
+  // }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getMyPosts());
-    console.log(posts,"posts");
-    console.log(user,"user")
-  }, [dispatch]);
+  // useEffect(() => {
+  //   if (error) {
+  //     alert.error(error);
+  //     dispatch({ type: "clearErrors" });
+  //   }
 
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch({ type: "clearErrors" });
-    }
-
-    if (likeError) {
-      alert.error(likeError);
-      dispatch({ type: "clearErrors" });
-    }
-    if (message) {
-      alert.success(message);
-      dispatch({ type: "clearMessage" });
-    }
-  }, [alert, error, message, likeError, dispatch]);
+  //   if (likeError) {
+  //     alert.error(likeError);
+  //     dispatch({ type: "clearErrors" });
+  //   }
+  //   if (message) {
+  //     alert.success(message);
+  //     dispatch({ type: "clearMessage" });
+  //   }
+  // }, [alert, error, message, likeError, dispatch]);
 
 //   const { currentUser } = useContext(AuthContext);
   console.log("User2",user);
-return loading === true || userLoading === true ? (
+return userLoading === true ? (
     <Loader />
   ) : (
   // return(
@@ -108,14 +96,14 @@ return loading === true || userLoading === true ? (
            
           </div>
           <div className="item">
-            <img src={Groups} alt="" />
-            <span onClick={() => setFollowersToggle(!followersToggle)}>Followers</span>
-             <span>{user.followers.length}</span>
+            <img src={Groups} alt=""  />
+            <span className="text1" onClick={() => setFollowersToggle(!followersToggle)}>Followers</span>
+             <span className="text2">{user.followers.length}</span>
           </div>
           <div className="item">
             <img src={Friends} alt="" />
-            <span onClick={() => setFollowingToggle(!followingToggle)}>Following</span>
-             <span>{user.following.length}</span>
+            <span className="text1" onClick={() => setFollowingToggle(!followingToggle)}>Following</span>
+             <span className="text2">{user.following.length}</span>
           </div>
           </>
                )}

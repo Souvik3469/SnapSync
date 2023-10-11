@@ -11,6 +11,7 @@ import {
 import Loader from "../Loader/Loader";
 import Post from "../Post/Post";
 import User from "../User/User";
+import RightBar from "../Rightbar/Rightbar";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -84,9 +85,15 @@ const UserProfile = () => {
     }
   }, [alert, error, message, followError, userError, dispatch]);
   console.log("User111111111111",user);
-  return loading === true || userLoading === true ? (
+   return loading === true || userLoading === true ? (
     <Loader />
   ) : (
+    <div style={{ display: "flex" }}>
+            {/* <LeftBar /> */}
+            <div style={{width:"25%"}}>
+             <RightBar/>
+             </div>
+             <div style={{ flex: 6 }}>
     <div className="account">
       <div className="accountleft">
         {posts && posts.length > 0 ? (
@@ -198,6 +205,9 @@ const UserProfile = () => {
         </Dialog>
       </div>
     </div>
+     </div>
+     </div>
+    
   );
 };
 

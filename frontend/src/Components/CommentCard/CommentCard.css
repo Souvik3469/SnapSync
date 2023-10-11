@@ -1,13 +1,13 @@
 .commentUser {
     display: flex;
     align-items: center;
-    color: rgba(0, 0, 0, 0.507);
+    color: rgba(226, 213, 213, 0.733);
 }
 
 .commentUser>a {
     display: flex;
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgba(233, 207, 207, 0.952);
     align-items: center;
     align-self: flex-start;
     transition: all 0.5s;

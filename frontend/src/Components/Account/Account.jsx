@@ -38,8 +38,8 @@ const Account = () => {
 
   useEffect(() => {
     dispatch(getMyPosts());
-    console.log(posts,"posts");
-    console.log(user,"user")
+    // console.log(posts,"posts");
+    // console.log(user,"user")
   }, [dispatch]);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const Account = () => {
             <div style={{width:"25%"}}>
              <RightBar />
              </div>
-            {/* <div style={{ flex: 6 }}> */}
+            <div style={{ flex: 6 }}>
     <div className="account">
       <div className="accountleft">
         {posts && posts.length > 0 ? (
@@ -183,6 +183,7 @@ const Account = () => {
       </div>
       {/* </div> */}
                   {/* <RightBar /> */}
+    </div>
     </div>
   );
 };

@@ -1,5 +1,8 @@
 @import "../../styles.scss";
-
+ .text2 {
+     color: aqua;
+     padding-left: 10px;
+ }
 .leftBar {
     // @include themify($themes) {
         flex: 2;
@@ -14,7 +17,10 @@
         @include mobile {
             display: none;
         }
-
+        .text1:hover{
+        cursor: pointer;
+        }
+               
         &::-webkit-scrollbar {
             display: none;
         }
