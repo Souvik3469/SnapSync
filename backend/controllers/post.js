@@ -16,7 +16,7 @@ exports.createPost = async (req, res) => {
     };
 
     const post = await Post.create(newPostData);
-    console.log(newPostData,"ddddddddddd");
+    // console.log(newPostData,"ddddddddddd");
 
     const user = await User.findById(req.user._id);
 

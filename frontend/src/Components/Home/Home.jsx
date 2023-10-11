@@ -30,7 +30,7 @@ const Home = () => {
     
     console.log(posts,"posts")
     dispatch(getpost())
-    dispatch(getAllUsers());
+    // dispatch(getAllUsers());
   }, [dispatch]);
 
   useEffect(() => {
@@ -92,10 +92,11 @@ const Home = () => {
 
 
 
-  return loading === true || usersLoading === true ? (
-    <Loader />
-  ) : (
-   <div style={{ display: "flex" }}>
+  // return loading === true || usersLoading === true ? (
+  //   <Loader />
+  // ) : (
+    return(
+   <div style={{ display: "flex", backgroundColor:" rgb(64, 64, 71)"}}>
             <LeftBar />
             <div style={{ flex: 6 }}>
               {/* <Outlet /> */}

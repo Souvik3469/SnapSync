@@ -7,7 +7,7 @@ export const getpost =() =>async(dispatch)=>{
     })
     const {data} =await axios.get('/api/v1/posts')
    
-    console.log("getallpost",data)
+    // console.log("getallpost",data)
     dispatch({
       type:"getpostsuccess",
       payload:data.posts

@@ -15,7 +15,7 @@ export const loginUser = (email, password) => async (dispatch) => {
         },
       }
     );
-console.log("login",data)
+// console.log("login",data)
     dispatch({
       type: "LoginSuccess",
       payload: data.user,
@@ -95,7 +95,7 @@ export const getAllUsers =
       });
 
       const { data } = await axios.get(`/api/v1/users?name=${name}`);
-      console.log("data " , data)
+      // console.log("data " , data)
       dispatch({
         type: "allUsersSuccess",
         payload: data.users,
