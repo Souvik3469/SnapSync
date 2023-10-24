@@ -52,22 +52,6 @@ To run this project, you will need to add the following environment variables to
 
 
 ## Features
-
-- User Authentication: Securely log in to SnapSync and protect your personal data.
-
-
-- User Search: Find and connect with other users with ease.
-
-- Post Interaction: Engage with posts by liking, disliking, and leaving comments.
-
-- Follow/Unfollow: Keep track of users you're interested in by following or unfollowing them.
-
-- Profile Management: Update your avatar, profile information, and password.
-
-- Forgot Password: Reset your password by receiving a verification email.
-
-
-## Features
 - User Authentication: Securely log in to SnapSync and protect your personal data.
 
 ### Register
