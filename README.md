@@ -7,7 +7,7 @@ SnapSync is a feature-rich social networking app that empowers users to connect 
 
 - [@Souvik3469](https://github.com/Souvik3469)
 
-```
+<!-- 
 ## Installation
 
 To start the project in your local machine
@@ -50,7 +50,7 @@ To run this project, you will need to add the following environment variables to
 `CLOUDINARY_API_KEY`=YOUR_CLOUDINARY_API_KEY
 
 `CLOUDINARY_API_SECRET`=YOUR_CLOUDINARY_API_SECRET
-```
+-->
 
 ## Features
 - User Authentication: Securely log in to SnapSync and protect your personal data.
