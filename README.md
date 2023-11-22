@@ -7,7 +7,7 @@ SnapSync is a feature-rich social networking app that empowers users to connect 
 
 - [@Souvik3469](https://github.com/Souvik3469)
 
-<!-- 
+<!-- 1
 ## Installation
 
 To start the project in your local machine
