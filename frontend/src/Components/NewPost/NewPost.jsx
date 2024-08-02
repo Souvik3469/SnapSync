@@ -8,6 +8,7 @@ import { loadUser } from "../../Actions/User";
 import "./NewPost.css";
 import LeftBar from "../Leftbar/Leftbar";
 import RightBar from "../Rightbar/Rightbar";
+import { CLEAR_ERRORS, CLEAR_MESSAGE } from "../../constants/postConstants";
 const NewPost = () => {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
@@ -41,12 +42,12 @@ const NewPost = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
 
     if (message) {
       alert.success(message);
-      dispatch({ type: "clearMessage" });
+      dispatch({ type: CLEAR_MESSAGE });
     }
   }, [dispatch, error, message, alert]);
 

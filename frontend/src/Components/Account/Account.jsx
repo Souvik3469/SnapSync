@@ -10,6 +10,7 @@ import User from "../User/User";
 import "./Account.css";
 import RightBar from "../Rightbar/Rightbar";
 import LeftBar from "../Leftbar/Leftbar";
+import { CLEAR_ERRORS, CLEAR_MESSAGE } from "../../constants/postConstants";
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -45,16 +46,16 @@ const Account = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
 
     if (likeError) {
       alert.error(likeError);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
     if (message) {
       alert.success(message);
-      dispatch({ type: "clearMessage" });
+      dispatch({ type: CLEAR_MESSAGE });
     }
   }, [alert, error, message, likeError, dispatch]);
 
@@ -169,7 +170,7 @@ const Account = () => {
                   key={follow._id}
                   userId={follow._id}
                   name={follow.name}
-                  avatar=""
+                  avatar={follow.avatar.url}
                 />
               ))
             ) : (

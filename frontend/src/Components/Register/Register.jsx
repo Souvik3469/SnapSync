@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./register.scss"
 import { registerUser } from "../../Actions/User";
 import { useAlert } from "react-alert";
+import { CLEAR_ERRORS } from "../../constants/postConstants";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -38,7 +39,7 @@ const Register = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
   }, [dispatch, error, alert]);
   return (

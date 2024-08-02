@@ -6,6 +6,7 @@ import { updatePassword } from "../../Actions/User";
 import { useAlert } from "react-alert";
 import LeftBar from "../Leftbar/Leftbar";
 import RightBar from "../Rightbar/Rightbar";
+import { CLEAR_ERRORS, CLEAR_MESSAGE } from "../../constants/postConstants";
 
 const UpdatePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
@@ -24,12 +25,12 @@ const UpdatePassword = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
 
     if (message) {
       alert.success(message);
-      dispatch({ type: "clearMessage" });
+      dispatch({ type: CLEAR_MESSAGE });
     }
   }, [dispatch, error, alert, message]);
 

@@ -1,5 +1,5 @@
 {
-  "name": "hifi",
+  "name": "snapsync_backend",
   "version": "1.0.0",
   "description": "social media",
   "main": "server.js",

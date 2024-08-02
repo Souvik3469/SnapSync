@@ -11,6 +11,7 @@ import { getpost } from "../../Actions/Post";
 import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-router-dom";
 import LeftBar from "../Leftbar/Leftbar";
 import RightBar from "../Rightbar/Rightbar";
+import { CLEAR_ERRORS, CLEAR_MESSAGE } from "../../constants/postConstants";
 const Home = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -36,16 +37,16 @@ const Home = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
 
     if (likeError) {
       alert.error(likeError);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type:CLEAR_ERRORS });
     }
     if (message) {
       alert.success(message);
-      dispatch({ type: "clearMessage" });
+      dispatch({ type: CLEAR_MESSAGE});
     }
   }, [alert, error, message, likeError, dispatch]);
 

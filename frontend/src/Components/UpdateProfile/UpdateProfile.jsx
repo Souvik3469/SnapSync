@@ -7,6 +7,7 @@ import { useAlert } from "react-alert";
 import Loader from "../Loader/Loader";
 import RightBar from "../Rightbar/Rightbar";
 import LeftBar from "../Leftbar/Leftbar";
+import { CLEAR_ERRORS, CLEAR_MESSAGE } from "../../constants/postConstants";
 
 const UpdateProfile = () => {
   const { loading, error, user } = useSelector((state) => state.user);
@@ -48,17 +49,17 @@ const UpdateProfile = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
 
     if (updateError) {
       alert.error(updateError);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
 
     if (message) {
       alert.success(message);
-      dispatch({ type: "clearMessage" });
+      dispatch({ type: CLEAR_MESSAGE });
     }
   }, [dispatch, error, alert, updateError, message]);
   return loading ? (
