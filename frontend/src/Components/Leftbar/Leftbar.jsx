@@ -143,7 +143,7 @@ return userLoading === true ? (
                   key={follow._id}
                   userId={follow._id}
                   name={follow.name}
-                  avatar=""
+                  avatar={follow.avatar.url}
                 />
               ))
             ) : (

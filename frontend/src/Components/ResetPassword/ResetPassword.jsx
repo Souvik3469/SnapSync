@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { resetPassword } from "../../Actions/User";
 import "./ResetPassword.css";
+import { CLEAR_ERRORS, CLEAR_MESSAGE } from "../../constants/postConstants";
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const dispatch = useDispatch();
@@ -20,11 +21,11 @@ const ResetPassword = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
     if (message) {
       alert.success(message);
-      dispatch({ type: "clearMessage" });
+      dispatch({ type: CLEAR_MESSAGE });
     }
   }, [alert, error, dispatch, message]);
 

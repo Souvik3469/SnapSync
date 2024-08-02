@@ -313,13 +313,14 @@ export const getUserPosts = (id) => async (dispatch) => {
     });
   }
 };
+
 export const getUserProfile = (id) => async (dispatch) => {
   try {
-    dispatch({ type: USER_PROFILE_REQUEST });
+    dispatch({
+      type: USER_PROFILE_REQUEST,
+    });
 
     const { data } = await axios.get(`/api/v1/user/${id}`);
-    console.log("API Response:", data);  // Add this line
-
     dispatch({
       type: USER_PROFILE_SUCCESS,
       payload: data.user,
@@ -331,6 +332,7 @@ export const getUserProfile = (id) => async (dispatch) => {
     });
   }
 };
+
 export const followAndUnfollowUser = (id) => async (dispatch) => {
   try {
     dispatch({

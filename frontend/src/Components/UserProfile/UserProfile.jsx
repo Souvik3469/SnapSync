@@ -12,6 +12,7 @@ import Loader from "../Loader/Loader";
 import Post from "../Post/Post";
 import User from "../User/User";
 import RightBar from "../Rightbar/Rightbar";
+import { CLEAR_ERRORS, CLEAR_MESSAGE } from "../../constants/postConstants";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const UserProfile = () => {
   useEffect(() => {
     dispatch(getUserPosts(params.id));
     dispatch(getUserProfile(params.id));
-    console.log("my profile data",posts);
+   
   }, [dispatch, params.id]);
 
   useEffect(() => {
@@ -54,6 +55,7 @@ const UserProfile = () => {
       setMyProfile(true);
     }
     if (user) {
+    
       user.followers.forEach((item) => {
         if (item._id === me._id) {
           setFollowing(true);
@@ -63,28 +65,29 @@ const UserProfile = () => {
       });
     }
   }, [user, me._id, params.id]);
-
+   console.log("Users",user);
+    console.log("my profile data",posts);
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
 
     if (followError) {
       alert.error(followError);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS });
     }
 
     if (userError) {
       alert.error(userError);
-      dispatch({ type: "clearErrors" });
+      dispatch({ type: CLEAR_ERRORS});
     }
     if (message) {
       alert.success(message);
-      dispatch({ type: "clearMessage" });
+      dispatch({ type: CLEAR_MESSAGE});
     }
   }, [alert, error, message, followError, userError, dispatch]);
-  console.log("User111111111111",user);
+
    return loading === true || userLoading === true ? (
     <Loader />
   ) : (
@@ -96,7 +99,7 @@ const UserProfile = () => {
              <div style={{ flex: 6 }}>
     <div className="account">
       <div className="accountleft">
-        {posts && posts.length > 0 ? (
+        {posts && posts?.length > 0 ? (
           posts.map((post) => (
             <Post
               key={post._id}
@@ -129,19 +132,19 @@ const UserProfile = () => {
               <button onClick={() => setFollowersToggle(!followersToggle)}>
                 <Typography>Followers</Typography>
               </button>
-              <Typography>{user.followers.length}</Typography>
+              <Typography>{user?.followers.length}</Typography>
             </div>
 
             <div>
               <button onClick={() => setFollowingToggle(!followingToggle)}>
                 <Typography>Following</Typography>
               </button>
-              <Typography>{user.following.length}</Typography>
+              <Typography>{user?.following.length}</Typography>
             </div>
 
             <div>
               <Typography>Posts</Typography>
-              <Typography>{user.posts.length}</Typography>
+              <Typography>{user?.posts.length}</Typography>
             </div>
 
             {myProfile ? null : (
@@ -163,13 +166,13 @@ const UserProfile = () => {
           <div className="DialogBox">
             <Typography variant="h4">Followers</Typography>
 
-            {user && user.followers.length > 0 ? (
+            {user && user?.followers.length > 0 ? (
               user.followers.map((follower) => (
                 <User
                   key={follower._id}
                   userId={follower._id}
                   name={follower.name}
-                  avatar={follower.url}
+                  avatar={follower.avatar.url}
                 />
               ))
             ) : (
@@ -187,13 +190,13 @@ const UserProfile = () => {
           <div className="DialogBox">
             <Typography variant="h4">Following</Typography>
 
-            {user && user.following.length > 0 ? (
+            {user && user?.following.length > 0 ? (
               user.following.map((follow) => (
                 <User
                   key={follow._id}
                   userId={follow._id}
                   name={follow.name}
-                  avatar={follow.url}
+                  avatar={follow.avatar.url}
                 />
               ))
             ) : (
