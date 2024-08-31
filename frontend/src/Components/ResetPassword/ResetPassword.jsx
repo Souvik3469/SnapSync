@@ -32,9 +32,10 @@ const ResetPassword = () => {
   return (
     <div className="resetPassword">
       <form className="resetPasswordForm" onSubmit={submitHandler}>
-        <Typography variant="h3" style={{ padding: "2vmax" }}>
-          HiFi
-        </Typography>
+        <div className="div1">
+        <span className="span1">Snap</span>
+         <span className="span2">Sync</span>
+        </div>
 
         <input
           type="password"
