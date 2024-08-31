@@ -43,56 +43,7 @@ const Register = () => {
     }
   }, [dispatch, error, alert]);
   return (
-    // <div className="register">
-    //   <form className="registerForm" onSubmit={submitHandler}>
-    //     <Typography variant="h3" style={{ padding: "2vmax" }}>
-    //       HiFi
-    //     </Typography>
-
-    //     <Avatar
-    //       src={avatar}
-    //       alt="User"
-    //       sx={{ height: "10vmax", width: "10vmax" }}
-    //     />
-
-    //     <input type="file" accept="image/*" onChange={handleImageChange} />
-
-    //     <input
-    //       type="text"
-    //       value={name}
-    //       placeholder="Name"
-    //       className="registerInputs"
-    //       required
-    //       onChange={(e) => setName(e.target.value)}
-    //     />
-
-    //     <input
-    //       type="email"
-    //       placeholder="Email"
-    //       className="registerInputs"
-    //       required
-    //       value={email}
-    //       onChange={(e) => setEmail(e.target.value)}
-    //     />
-
-    //     <input
-    //       type="password"
-    //       className="registerInputs"
-    //       placeholder="Password"
-    //       required
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-
-    //     <Link to="/">
-    //       <Typography>Already Signed Up? Login Now</Typography>
-    //     </Link>
-
-    //     <Button disabled={loading} type="submit">
-    //       Sign Up
-    //     </Button>
-    //   </form>
-    // </div>
+  
       <div className="register">
       <div className="card">
         <div className="left">

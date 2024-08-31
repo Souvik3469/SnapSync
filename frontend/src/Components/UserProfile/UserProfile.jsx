@@ -91,7 +91,7 @@ const UserProfile = () => {
    return loading === true || userLoading === true ? (
     <Loader />
   ) : (
-    <div style={{ display: "flex" }}>
+   <div style={{ display: "flex",backgroundColor:" rgb(64, 64, 71)"  }}>
             {/* <LeftBar /> */}
             <div style={{width:"25%"}}>
              <RightBar/>

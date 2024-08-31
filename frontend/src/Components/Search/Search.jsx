@@ -19,7 +19,7 @@ const Search = () => {
   };
 
   return (
-      <div style={{ display: "flex" }}>
+     <div style={{ display: "flex", backgroundColor:" rgb(64, 64, 71)"}}>
             <LeftBar />
             <div style={{ flex: 6 }}>
     <div className="search">

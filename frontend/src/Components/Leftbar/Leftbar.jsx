@@ -37,29 +37,6 @@ const LeftBar = () => {
   const [followingToggle, setFollowingToggle] = useState(false);
  
 
-  // useEffect(() => {
-  //   dispatch(getMyPosts());
-  //   console.log(posts,"posts");
-  //   console.log(user,"user")
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (error) {
-  //     alert.error(error);
-  //     dispatch({ type: "clearErrors" });
-  //   }
-
-  //   if (likeError) {
-  //     alert.error(likeError);
-  //     dispatch({ type: "clearErrors" });
-  //   }
-  //   if (message) {
-  //     alert.success(message);
-  //     dispatch({ type: "clearMessage" });
-  //   }
-  // }, [alert, error, message, likeError, dispatch]);
-
-//   const { currentUser } = useContext(AuthContext);
   console.log("User2",user);
 return userLoading === true ? (
     <Loader />
